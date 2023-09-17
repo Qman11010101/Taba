@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "Tab Cluster",
+        "message": "Taba",
         "description": "Extension name"
     },
     "extensionDescription": {
-        "message": "Grouping tabs that are too many to display.",
+        "message": "Grouping tabs that are too many to display, and helping to remove duplicate tabs.",
         "description": "Extension description"
     }
 }

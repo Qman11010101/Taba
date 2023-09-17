@@ -1,10 +1,10 @@
 {
     "extensionName" : {
-        "message" : "Tab Cluster",
+        "message" : "Taba",
         "description" : "拡張機能名"
     },
     "extensionDescription" : {
-        "message" : "増えすぎたタブをグルーピングして表示します。",
+        "message" : "増えすぎたタブをグルーピングして表示したり、重複したタブを削除したりできます。",
         "description" : "拡張機能説明"
     }
 }
