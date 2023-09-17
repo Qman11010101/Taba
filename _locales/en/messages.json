@@ -1,0 +1,10 @@
+{
+    "extensionName": {
+        "message": "Tab Cluster",
+        "description": "Extension name"
+    },
+    "extensionDescription": {
+        "message": "Grouping tabs that are too many to display.",
+        "description": "Extension description"
+    }
+}

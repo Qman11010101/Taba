@@ -1,0 +1,10 @@
+{
+    "extensionName" : {
+        "message" : "Tab Cluster",
+        "description" : "拡張機能名"
+    },
+    "extensionDescription" : {
+        "message" : "増えすぎたタブをグルーピングして表示します。",
+        "description" : "拡張機能説明"
+    }
+}

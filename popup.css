@@ -1,0 +1,76 @@
+body {
+    width: 400px;
+    margin: 0;
+    font-size: 13px;
+    user-select: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    background: linear-gradient(#1f1e33, #3c3d77);
+    color: #fff;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 1.4rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+main {
+    padding: 10px;
+}
+
+h2 {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+/* タブ一覧 */
+
+#tabs-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* タブ */
+
+.tab-wrap {
+    display: flex;
+    color: #fff;
+    padding: 5px;
+    margin: 0 0 5px;
+}
+
+.inactive {
+    background-color: #333;
+}
+
+.active {
+    background-color: #367427;
+}
+
+.tab-title-block {
+    width: 100%;
+    display: flex;
+}
+
+.tab-title {
+    width: 100%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.tab-btn {
+    display: block;
+    margin-left: 5px;
+}
