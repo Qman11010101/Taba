@@ -95,6 +95,13 @@ h2 {
     font-weight: bold;
 }
 
+.tab-title-show {
+    width: 100%;
+    text-wrap: wrap;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
 .tab-btn {
     display: block;
     margin-left: 5px;

@@ -26,7 +26,9 @@ function render() {
             if (a.url > b.url) return 1;
             return 0;
         });
-        tabs.forEach(function (tab) {
+        // tabs.forEach(function (tab) {
+        for (let i = 0; i < tabs.length; i++) {
+            let tab = tabs[i];
             const tabDiv = tabsAll.appendChild(document.createElement("div"));
             tabDiv.className = "tab-wrap";
 
@@ -76,7 +78,6 @@ function render() {
             tabCloseBtn.innerText = "Close";
             tabCloseBtn.addEventListener("click", () => {
                 chrome.tabs.remove(tab.id);
-                tabDiv.remove();
             });
 
             // Tab deatil panel display control
@@ -91,8 +92,11 @@ function render() {
                     tabCtrlDisp.setAttribute(`data-${tab.id}-disp`, "false");
                     tabDetail.style.display = "none";
                 }
+                tabTitle.classList.toggle("tab-title");
+                tabTitle.classList.toggle("tab-title-show");
             });
-        });
+        }
+        search();
     });
 }
 
@@ -116,21 +120,16 @@ function search() {
     }
 }
 
-function rs() {
-    render();
-    search();
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     render();
     document.getElementById("search-text").addEventListener("input", search);
-    chrome.tabs.onCreated.addListener(() => rs());
-    chrome.tabs.onMoved.addListener(() => rs());
-    chrome.tabs.onActivated.addListener(() => rs());
-    chrome.tabs.onDetached.addListener(() => rs());
-    chrome.tabs.onAttached.addListener(() => rs());
-    chrome.tabs.onRemoved.addListener(() => rs());
-    chrome.windows.onCreated.addListener(() => rs());
-    chrome.windows.onFocusChanged.addListener(() => rs());
-    chrome.windows.onRemoved.addListener(() => rs());
+    chrome.tabs.onCreated.addListener(() => render());
+    chrome.tabs.onMoved.addListener(() => render());
+    chrome.tabs.onActivated.addListener(() => render());
+    chrome.tabs.onDetached.addListener(() => render());
+    chrome.tabs.onAttached.addListener(() => render());
+    chrome.tabs.onRemoved.addListener(() => render());
+    chrome.windows.onCreated.addListener(() => render());
+    chrome.windows.onFocusChanged.addListener(() => render());
+    chrome.windows.onRemoved.addListener(() => render());
 });
