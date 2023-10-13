@@ -5,7 +5,6 @@ function render() {
 
     chrome.tabs.query({}, async function (tabs) {
         document.getElementById("tab-count").innerText = tabs.length;
-        console.log(tabs);
 
         // Get active window
         let activeWindowId;
@@ -43,6 +42,7 @@ function render() {
             }
             tabDiv.id = tab.id;
             tabDiv.setAttribute("data-title-normalized", tab.title.normalize("NFKC").toLowerCase().replaceAll(" ", ""));
+            tabDiv.setAttribute("data-index", i);
 
             // Tab title block
             const tabTitleBlock = tabDiv.appendChild(document.createElement("div"));
@@ -121,6 +121,10 @@ function search() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("jumpfocustab").addEventListener("click", () => {
+        document.getElementsByClassName("current")[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
     render();
     document.getElementById("search-text").addEventListener("input", search);
     chrome.tabs.onCreated.addListener(() => render());

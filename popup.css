@@ -36,6 +36,7 @@ h2 {
 
 #search-wrapper {
     display: flex;
+    margin: 10px 0 0;
 }
 
 #search-wrapper input[type="text"] {
