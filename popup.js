@@ -1,3 +1,7 @@
+function normalizeText(text) {
+    return text.normalize("NFKC").toLowerCase().replaceAll(" ", "");
+}
+
 function render() {
     // Initialization
     const tabsAll = document.getElementById("tabs-all");
@@ -19,12 +23,20 @@ function render() {
             }
         }
 
-        // Sort tabs by url
-        tabs.sort(function (a, b) {
-            if (a.url < b.url) return -1;
-            if (a.url > b.url) return 1;
-            return 0;
-        });
+        // Sort tabs by url || title
+        if (document.getElementById("sort-order-title").checked) {
+            tabs.sort(function (a, b) {
+                if (a.title < b.title) return -1;
+                if (a.title > b.title) return 1;
+                return 0;
+            });
+        } else if (document.getElementById("sort-order-url").checked) {
+            tabs.sort(function (a, b) {
+                if (a.url < b.url) return -1;
+                if (a.url > b.url) return 1;
+                return 0;
+            });
+        }
         // tabs.forEach(function (tab) {
         for (let i = 0; i < tabs.length; i++) {
             let tab = tabs[i];
@@ -41,7 +53,7 @@ function render() {
                 tabDiv.classList.add("inactive");
             }
             tabDiv.id = tab.id;
-            tabDiv.setAttribute("data-title-normalized", tab.title.normalize("NFKC").toLowerCase().replaceAll(" ", ""));
+            tabDiv.setAttribute("data-title-normalized", normalizeText(tab.title));
             tabDiv.setAttribute("data-index", i);
 
             // Tab title block
@@ -101,7 +113,7 @@ function render() {
 }
 
 function search() {
-    const searchWord = document.getElementById("search-text").value.normalize("NFKC").toLowerCase().replaceAll(" ", "");
+    const searchWord = normalizeText(document.getElementById("search-text").value);
     const tabWraps = document.getElementsByClassName("tab-wrap");
     if (searchWord === "") {
         for (let i = 0; i < tabWraps.length; i++) {
@@ -112,7 +124,12 @@ function search() {
     }
     for (let i = 0; i < tabWraps.length; i++) {
         const tabWrap = tabWraps[i];
-        if (tabWrap.getAttribute("data-title-normalized").includes(searchWord)) {
+        const dispCondition = tabWrap.getAttribute("data-title-normalized").includes(searchWord) ||
+            (
+                document.getElementById("include-url").checked &&
+                normalizeText(tabWrap.getElementsByClassName("tab-url-text")[0].innerText).includes(searchWord)
+            );
+        if (dispCondition) {
             tabWrap.style.display = "block";
         } else {
             tabWrap.style.display = "none";
@@ -121,9 +138,13 @@ function search() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("jumpfocustab").addEventListener("click", () => {
+    document.getElementById("jump-to-focused-tab").addEventListener("click", () => {
         document.getElementsByClassName("current")[0].scrollIntoView({ behavior: "smooth", block: "center" });
     });
+
+    document.getElementById("include-url").addEventListener("change", () => render());
+    document.getElementById("sort-order-title").addEventListener("change", () => render());
+    document.getElementById("sort-order-url").addEventListener("change", () => render());
 
     render();
     document.getElementById("search-text").addEventListener("input", search);

@@ -32,6 +32,21 @@ h2 {
     font-size: 1.2rem;
 }
 
+/* 設定 */
+
+.setting-block {
+    margin: 5px 0 0;
+}
+
+input[type="radio"] {
+    margin-left: 0;
+    vertical-align: -2px;
+}
+
+input[type="checkbox"] {
+    vertical-align:text-top;
+}
+
 /* 検索 */
 
 #search-wrapper {
