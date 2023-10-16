@@ -14,12 +14,42 @@
     <main>
         <h2>Current tabs</h2>
         <p>Count: <span id="tab-count"></span></p>
-        <div class="setting-block"><button id="jump-to-focused-tab">Jump to focused tab</button> <label for="include-url"><input type="checkbox" id="include-url">Include URLs in the search</label></div>
-        <div class="setting-block">
-            <h3>Sort order</h3>
-            <label for="sort-order-url"><input type="radio" name="sort-order" id="sort-order-url" value="1" checked>Sort by URL</label>
-            <label for="sort-order-title"><input type="radio" name="sort-order" id="sort-order-title" value="2">Sort by page title</label>
-        </div>
+        <div class="setting-block"><button id="jump-to-focused-tab">Jump to focused tab</button> <label
+                for="include-url"><input type="checkbox" id="include-url">Include URLs in the search</label></div>
+        <details id="setting-collapse" open>
+            <summary>Click here to open settings</summary>
+            <div class="setting-block">
+                <h3>Sort order</h3>
+                <label for="sort-order-url">
+                    <input type="radio" name="sort-order" id="sort-order-url" value="1" checked>Sort by URL
+                </label>
+                <label for="sort-order-title">
+                    <input type="radio" name="sort-order" id="sort-order-title" value="2">Sort
+                    by title
+                </label>
+            </div>
+            <div class="setting-block">
+                <h3>Sort direction</h3>
+                <label for="sort-direction-asc">
+                    <input type="radio" name="sort-direction" id="sort-direction-asc" value="1" checked>Ascending
+                </label>
+                <label for="sort-direction-desc">
+                    <input type="radio" name="sort-direction" id="sort-direction-desc" value="2">Descending
+                </label>
+            </div>
+            <div class="setting-block">
+                <h3>Make Taba</h3>
+                <label for="taba-notaba">
+                    <input type="radio" name="taba" id="taba-notaba" value="1" checked>No Taba
+                </label>
+                <label for="taba-fullurl">
+                    <input type="radio" name="taba" id="taba-fullurl" value="2">By full URL
+                </label>
+                <label for="taba-domain">
+                    <input type="radio" name="taba" id="taba-domain" value="3">By domain
+                </label>
+            </div>
+        </details>
         <section id="search-wrapper">
             <input type="text" id="search-text" placeholder="Search..." autofocus>
         </section>

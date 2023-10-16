@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-    margin: 15px 0 5px;
+    margin: 10px 0 5px;
     font-size: 1rem;
 }
 
@@ -40,6 +40,13 @@ main {
 }
 
 /* 設定 */
+
+#setting-collapse {
+    padding: 5px;
+    border: 1px solid #666;
+    border-radius: 3px;
+    margin-top: 10px;
+}
 
 .setting-block {
     margin: 5px 0 0;
