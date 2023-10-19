@@ -16,7 +16,9 @@ header {
     font-family: sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     width: fit-content;
 }
 
@@ -58,7 +60,7 @@ input[type="radio"] {
 }
 
 input[type="checkbox"] {
-    vertical-align:text-top;
+    vertical-align: text-top;
 }
 
 /* 検索 */
@@ -138,7 +140,8 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-.tab-detail, .tab-control {
+.tab-detail,
+.tab-control {
     margin-top: 5px;
 }
 
