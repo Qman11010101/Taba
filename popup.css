@@ -169,3 +169,29 @@ input[type="checkbox"] {
     display: flex;
     justify-content: flex-end;
 }
+
+/* ローディング */
+
+.loading {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    border-top-color: #000;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.1s linear infinite;
+    margin: 10px auto;
+    display: none;
+}
+
+@-webkit-keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -3,6 +3,8 @@ function normalizeText(text) {
 }
 
 function render() {
+    // Loader display
+    document.getElementById("loader").style.display = "block";
     // Initialization
     const tabsAll = document.getElementById("tabs-all");
     while (tabsAll.firstChild) tabsAll.removeChild(tabsAll.firstChild);
@@ -109,6 +111,9 @@ function render() {
             });
         }
         search();
+
+        // Loader display none
+        document.getElementById("loader").style.display = "none";
     });
 }
 
