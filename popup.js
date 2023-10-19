@@ -39,7 +39,7 @@ function render() {
                 return 0;
             });
         }
-        // tabs.forEach(function (tab) {
+
         for (let i = 0; i < tabs.length; i++) {
             let tab = tabs[i];
             const tabDiv = tabsAll.appendChild(document.createElement("div"));
