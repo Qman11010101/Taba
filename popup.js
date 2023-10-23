@@ -129,11 +129,15 @@ function search() {
     }
     for (let i = 0; i < tabWraps.length; i++) {
         let tabWrap = tabWraps[i];
-        let dispCondition = tabWrap.getAttribute("data-title-normalized").includes(searchWord) ||
-            (
-                document.getElementById("include-url").checked &&
-                normalizeText(tabWrap.getElementsByClassName("tab-url-text")[0].innerText).includes(searchWord)
-            );
+
+        // conditions
+        let titleIncludes = tabWrap.getAttribute("data-title-normalized").includes(searchWord);
+        let urlIncludes = (
+            document.getElementById("include-url").checked &&
+            normalizeText(tabWrap.getElementsByClassName("tab-url-text")[0].innerText).includes(searchWord)
+        );
+
+        let dispCondition = titleIncludes || urlIncludes;
         if (dispCondition) {
             tabWrap.style.display = "block";
         } else {
