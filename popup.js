@@ -128,8 +128,8 @@ function search() {
         return;
     }
     for (let i = 0; i < tabWraps.length; i++) {
-        const tabWrap = tabWraps[i];
-        const dispCondition = tabWrap.getAttribute("data-title-normalized").includes(searchWord) ||
+        let tabWrap = tabWraps[i];
+        let dispCondition = tabWrap.getAttribute("data-title-normalized").includes(searchWord) ||
             (
                 document.getElementById("include-url").checked &&
                 normalizeText(tabWrap.getElementsByClassName("tab-url-text")[0].innerText).includes(searchWord)
